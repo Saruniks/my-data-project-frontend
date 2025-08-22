@@ -7,6 +7,7 @@ import "./../app/app.css";
 import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
+import VisitorCounter from "./components/VisitorCounter";
 
 Amplify.configure(outputs);
 
@@ -40,6 +41,12 @@ export default function App() {
           <li key={todo.id}>{todo.content}</li>
         ))}
       </ul>
+      
+      {/* Visitor Counter Component */}
+      <div className="visitor-counter-container">
+        <VisitorCounter />
+      </div>
+      
       <div>
         🥳 App successfully hosted. Try creating a new todo.
         <br />
