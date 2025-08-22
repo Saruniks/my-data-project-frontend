@@ -20,7 +20,10 @@ class ApiClient {
    */
   static async getVisitorCount(): Promise<CounterResponse> {
     try {
-      const response = await fetch(`${window.location.origin}/api/`);
+      // When accessing through CloudFront, this will be routed to the Lambda URL
+      // CloudFront's behavior will handle the routing based on the /api path
+      const apiPath = '/api/';
+      const response = await fetch(apiPath);
       
       if (!response.ok) {
         throw new Error(`API request failed with status: ${response.status}`);
