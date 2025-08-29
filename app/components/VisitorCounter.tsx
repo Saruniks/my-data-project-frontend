@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import ApiClient, { CounterResponse } from "../utils/apiClient";
+import ApiClient from "../utils/apiClient";
 
 export default function VisitorCounter() {
   const [counter, setCounter] = useState<number | null>(null);
